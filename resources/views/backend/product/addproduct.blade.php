@@ -40,10 +40,10 @@
                 <form method="post" enctype="multipart/form-data">
                     @csrf
 
-                    
+
                 <div class="panel panel-primary">
                     <form action="" method="post"></form>
-                
+
                     <div class="panel-heading">Thêm sản phẩm</div>
                     <div class="panel-body">
                         <div class="row" style="margin-bottom:40px">
@@ -63,7 +63,7 @@
                                                 <div class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('product_code') }}</strong>
                                                 </div>
-                                                
+
                                             @endif
                                         </div>
                                         <div class="form-group">
@@ -73,7 +73,7 @@
                                             <div class="alert alert-danger" role="alert">
                                                 <strong>{{ $errors->first('product_name') }}</strong>
                                             </div>
-                                            
+
                                         @endif
                                         </div>
                                         <div class="form-group">
@@ -84,8 +84,8 @@
                                                         <strong> {{$errors->first('product_price')}}</strong>
                                                     </div>
                                                 @endif
-                                        </div>  
-                                       
+                                        </div>
+
                                         <div class="form-group">
                                             <label>Số sản phẩm</label>
                                             <input  type="number" name="quantity" class="form-control">
@@ -94,7 +94,7 @@
                                                         <strong> {{$errors->first('quantity')}}</strong>
                                                     </div>
                                                 @endif
-                                        </div>  
+                                        </div>
                                         <div class="form-group">
                                             <label>Sản phẩm nổi bật</label>
                                             <select  name="featured" class="form-control">
@@ -120,7 +120,7 @@
                                              @endif
                                             <input id="img" type="file" name="product_img" class="form-control hidden"
                                                 onchange="changeImg(this)">
-                                            <img id="avatar" class="thumbnail" width="100%" height="350px" src="public/backend/img/import-img.png">
+                                            <img id="avatar" class="thumbnail" width="100%" height="350px" src="backend/img/import-img.png">
                                         </div>
                                     </div>
                                 </div>
@@ -139,12 +139,12 @@
                                                 @if ($errors->has('attr_name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('attr_name') }}</strong>
-                                                </div>  
+                                                </div>
                                                 @endif
                                                 @if ($errors->has('value_name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('value_name') }}</strong>
-                                                </div>  
+                                                </div>
                                                 @endif
                                                 @if (session('thongbao'))
                                                 <div class="alert alert-success" role="alert">
@@ -161,7 +161,7 @@
                                                         $i=1;
                                                     @endphp
                                                     @endforeach
-        
+
                                                     <li><a href="#tab-add" data-toggle="tab">+</a></li>
                                                 </ul>
                                                 <div class="tab-content">
@@ -173,7 +173,7 @@
                                                                     @foreach ($attr->values as $value)
                                                                     <th>{{$value->value}}</th>
                                                                     @endforeach
-                                                  
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -195,14 +195,14 @@
                                                             <div> <button name="add_val" type="submit">Thêm</button></div>
                                                         </form>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     @php
                                                     $i=2;
                                                     @endphp
                                                     @endforeach
-                                                  
-        
-                                                    
+
+
+
                                                     <div class="tab-pane fade" id="tab-add">
                                                         <form action="admin/product/add-attr" method="post">
                                                             @csrf
@@ -210,7 +210,7 @@
                                                             <label for="">Tên thuộc tính mới</label>
                                                             <input type="text" class="form-control" name="attr_name" aria-describedby="helpId" placeholder="">
                                                         </div>
-        
+
                                                         <button type="submit" name="add_pro" class="btn btn-success"> <span class="glyphicon glyphicon-plus"></span>
                                                             Thêm thuộc tính</button>
                                                         </form>
@@ -219,11 +219,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-        
+
                                             <div class="form-check form-check-inline">
                                                 <label class="form-check-label">
                                                     <p></p>
-        
+
                                                 </label>
                                             </div>
                                         </div>
@@ -245,8 +245,7 @@
                     </form>
                     </div>
                 </div>
-        
+
                 <!--/.row-->
             </div>
         @endsection
-        

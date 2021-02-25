@@ -47,7 +47,7 @@
                             <div class="alert alert-success" role="alert">
                                 <strong>{{ session('thongbao') }}</strong>
                             </div>
-              
+
                             @endif
                             <div class="row" style="margin-bottom:40px">
                                 <div class="col-xs-8">
@@ -67,7 +67,7 @@
                                                 <div class="alert alert-danger" role="alert">
                                                     <strong>{{ $errors->first('product_code') }}</strong>
                                                 </div>
-                                                
+
                                             @endif
                                             </div>
                                             <div class="form-group">
@@ -77,7 +77,7 @@
                                                     @if ($errors->has('product_name'))
                                                         <div class="alert alert-danger" role="alert">
                                                             <strong>{{ $errors->first('product_name') }}</strong>
-                                                        </div>  
+                                                        </div>
                                                     @endif
                                             </div>
                                             <div class="form-group">
@@ -89,17 +89,17 @@
                                                     @if ($errors->has('product_price'))
                                                         <div class="alert alert-danger" role="alert">
                                                             <strong>{{ $errors->first('product_price') }}</strong>
-                                                        </div>  
+                                                        </div>
                                                     @endif
-                                                    
+
                                             </div>
                                             <div class="form-group">
                                                 <label>Số sản phẩm</label>
                                                 <input  type="text" name="quantity" class="form-control"
                                                     value="{{ $product->quantity }}">
-                                                   
+
                                             </div>
-                                            
+
                                             {{--  <div class="form-group">
                                                 <label>Số sản phẩm</label> <a href="admin/product/edit-variant/{{ $product->id }}"><span
                                                         class="glyphicon glyphicon-chevron-right"></span>
@@ -109,9 +109,9 @@
                                                     @if ($errors->has('quantity'))
                                                         <div class="alert alert-danger" role="alert">
                                                             <strong>{{ $errors->first('quantity') }}</strong>
-                                                        </div>  
+                                                        </div>
                                                     @endif
-                                                    
+
                                             </div>                                                                   --}}
                                             <div class="form-group">
                                                 <label>Sản phẩm nổi bật</label>
@@ -136,9 +136,9 @@
                                                     @if ($errors->has('product_img'))
                                                     <div class="alert alert-danger" role="alert">
                                                         <strong>{{ $errors->first('product_img') }}</strong>
-                                                    </div>  
+                                                    </div>
                                                 @endif
-                                                <img id="avatar" class="thumbnail" width="100%" height="350px" src="public/backend/img/{{ $product->img }}">
+                                                <img id="avatar" class="thumbnail" width="100%" height="350px" src="backend/img/{{ $product->img }}">
                                             </div>
                                         </div>
                                     </div>
@@ -146,26 +146,26 @@
                                         <label>Thông tin</label>
                                         <textarea  name="info" style="width: 100%;height: 100px;">{{ $product->info }}</textarea>
                                     </div>
-             
+
 
             </div>
             <div class="col-xs-4">
 
                 <div class="panel panel-default">
                     <div class="panel-body tabs">
-                    
-                             
+
+
                                 @if ($errors->has('attr_name'))
                                 <div class="alert alert-danger" role="alert">
                                     <strong>{{ $errors->first('attr_name') }}</strong>
-                                </div>  
+                                </div>
                                 @endif
                                 @if ($errors->has('value_name'))
                                 <div class="alert alert-danger" role="alert">
                                     <strong>{{ $errors->first('value_name') }}</strong>
-                                </div>  
+                                </div>
                                 @endif
-                              
+
                                 <ul class="nav nav-tabs">
                                     @php
                                         $i=0;
@@ -187,7 +187,7 @@
                                                     @foreach ($attr->values as $value)
                                                     <th>{{$value->value}}</th>
                                                     @endforeach
-                                  
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -199,9 +199,9 @@
                                             </tbody>
                                         </table>
                                         <hr>
-                                     
+
                                         </div>
-                                    </div> 
+                                    </div>
                                     @php
                                     $i=2;
                                     @endphp

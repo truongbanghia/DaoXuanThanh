@@ -55,12 +55,12 @@
 						<div class="product-cart">
 							<div class="one-forth">
 								<div class="product-img">
-									<img class="img-thumbnail cart-img" src="public/backend/img/{{$product->options->img}}">
+									<img class="img-thumbnail cart-img" src="backend/img/{{$product->options->img}}">
 								</div>
 								<div class="detail-buy">
 									<h4>{{ $product->name }}</h4>
 									<div class="row">
-										
+
 										@foreach ($product->options->attr as $key=>$value)
 											<div class="col-md-4"><strong>{{ $key }}:{{ $value }}</strong></div>
 										@endforeach
@@ -87,10 +87,10 @@
 									<a onclick="return del_cart('{{$product->name}}')" href="product/removecart/{{$product->rowId}}" class="closed"></a>
 								</div>
 							</div>
-						</div>  
+						</div>
 						@endforeach
 				</div>
-				<div class="row"> 
+				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 						<div class="total-wrap">
 							<div class="row">
@@ -113,10 +113,10 @@
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
 
 		<!-- end main -->
-		
+
 		@endsection
 		@section('script_cart')
 		<script>
@@ -124,7 +124,7 @@
     <script>
         alert({{ session()->get('jsAlert') }});
     </script>
-@endif 
+@endif
 			function del_cart(name)
 			{
 				return confirm('Bạn muốn xoá sản phẩm : '+name+' ?');

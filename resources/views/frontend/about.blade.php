@@ -39,7 +39,7 @@
 
 									<div class="row row-pb-sm">
 										<div class="col-md-6">
-											<img class="img-responsive" src="public/frontend/images/about.jpg" alt="">
+											<img class="img-responsive" src="frontend/images/about.jpg" alt="">
 										</div>
 										<div class="col-md-6">
 											<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks

@@ -10,7 +10,7 @@
 							@foreach ($products as $product)
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(public/backend/img/{{$product->img}});">
+									<div class="product-img" style="background-image: url(backend/img/{{$product->img}});">
 
 										<div class="cart">
 											<p>
@@ -26,10 +26,10 @@
 										<p class="price"><span>{{ number_format($product->price,0,'',',') }}VND</span>
 									</div>
 								</div>
-							</div> 
+							</div>
 							@endforeach
-							
-						
+
+
 						</div>
 						<div class="row">
 							<div class="col-md-12">
@@ -42,22 +42,22 @@
 							<div class="side">
 								<h2>Danh mục</h2>
 								<div class="fancy-collapse-panel">
-									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">					
+									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 										@foreach ($category as $cate)
 											@if($cate->parent==0)
 												<div class="panel panel-default">
 													<div class="panel-heading" role="tab" id="headingOne">
 														<h4 class="panel-title">
 															<a data-toggle="collapse" data-parent="#accordion" href="#menu{{ $cate->id }}" aria-expanded="true" aria-controls="collapseOne">{{ $cate->name }}
-															</a> 
+															</a>
 														</h4>
 													</div>
 													<div id="menu{{ $cate->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 														<div class="panel-body">
 															<ul>
 																@foreach ($category as $cate2)
-																	@if($cate2->parent==$cate->id)							
-																			<li><a href="product?category={{ $cate2->id }}">{{ $cate2->name }}</a></li>				
+																	@if($cate2->parent==$cate->id)
+																			<li><a href="product?category={{ $cate2->id }}">{{ $cate2->name }}</a></li>
 																	@endif
 																@endforeach
 															</ul>
@@ -114,13 +114,13 @@
 							<div class="size-wrap">
 								<p class="size-desc">
 									@foreach ($attr->values as $value)
-										<a href="product?value={{ $value->id }}" class="attr">{{ $value->value  }}</a>	
-									@endforeach 						
+										<a href="product?value={{ $value->id }}" class="attr">{{ $value->value  }}</a>
+									@endforeach
 								</p>
 							</div>
 						</div>
 						@endforeach
-						
+
 						</div>
 					</div>
 				</div>

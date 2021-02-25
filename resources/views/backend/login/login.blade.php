@@ -6,13 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Forms</title>
 
-	<link href="public/backend/css/bootstrap.min.css" rel="stylesheet">
-	<link href="public/backend/css/datepicker3.css" rel="stylesheet">
-	<link href="public/backend/css/styles.css" rel="stylesheet">
+	<link href="backend/css/bootstrap.min.css" rel="stylesheet">
+	<link href="backend/css/datepicker3.css" rel="stylesheet">
+	<link href="backend/css/styles.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
-<script src="public/backend/public/backend/js/html5shiv.js"></script>
-<script src="public/backend/js/respond.min.js"></script>
+<script src="backend/backend/js/html5shiv.js"></script>
+<script src="backend/js/respond.min.js"></script>
 <![endif]-->
 
 </head>
@@ -27,10 +27,10 @@
 					@if (session('thongbao'))
 					<div class="alert alert-danger" role="alert">
 						<strong>{{ session('thongbao') }}</strong>
-					</div> 
+					</div>
 					@endif
 					<form method="post">
-						@csrf	
+						@csrf
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" value="{{ old('email') }}">
@@ -64,13 +64,13 @@
 
 
 
-	<script src="public/backend/js/jquery-1.11.1.min.js"></script>
-	<script src="public/backend/js/bootstrap.min.js"></script>
-	<script src="public/backend/js/chart.min.js"></script>
-	<script src="public/backend/js/chart-data.js"></script>
-	<script src="public/backend/js/easypiechart.js"></script>
-	<script src="public/backend/js/easypiechart-data.js"></script>
-	<script src="public/backend/js/bootstrap-datepicker.js"></script>
+	<script src="backend/js/jquery-1.11.1.min.js"></script>
+	<script src="backend/js/bootstrap.min.js"></script>
+	<script src="backend/js/chart.min.js"></script>
+	<script src="backend/js/chart-data.js"></script>
+	<script src="backend/js/easypiechart.js"></script>
+	<script src="backend/js/easypiechart-data.js"></script>
+	<script src="backend/js/bootstrap-datepicker.js"></script>
 	<script>
 		! function ($) {
 			$(document).on("click", "ul.nav li.parent > a > span.icon", function () {

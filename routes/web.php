@@ -30,12 +30,13 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('checkout','frontend\ProductController@PostCheckOut');
     Route::get('complete/{id_customer}','frontend\ProductController@complete');
 
-   
+
 
 });
 //backend
 Route::get('auth/google', 'backend\GoogleController@redirectToGoogle');
-Route::get('auth/google/callback', 'backend\GoogleController@handleGoogleCallback');
+Route::get('callback', 'backend\GoogleController@handleGoogleCallback');
+Route::get('logout/google', 'backend\GoogleController@logoutGoogle');
 Route::get('login','backend\LoginController@GetLogin' )->middleware('CheckLogout');
 Route::post('login','backend\LoginController@PostLogin' );
 
@@ -43,7 +44,7 @@ Route::post('login','backend\LoginController@PostLogin' );
 Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
     Route::get('','backend\LoginController@GetIndex' );
     Route::get('logout','backend\LoginController@Logout' );
-    
+
     Route::group(['prefix' => 'category'], function() {
         Route::get('','backend\CategoryController@GetCategory' );
         Route::post('','backend\CategoryController@PostCategory' );
@@ -51,7 +52,7 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
         Route::post('edit/{id}','backend\CategoryController@PostEditCategory');
         Route::get('del/{id}','backend\CategoryController@DelCategory' );
     });
-    
+
     Route::group(['prefix' => 'product'], function() {
         Route::get('','backend\ProductController@ListProduct' );
         Route::get('add','backend\ProductController@AddProduct' );
@@ -59,7 +60,7 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
 
         Route::get('edit/{id}','backend\ProductController@EditProduct' );
         Route::post('edit/{id}','backend\ProductController@PostEditProduct' );
-       
+
         Route::get('del/{id}','backend\ProductController@DelProduct' );
 
 
@@ -80,24 +81,24 @@ Route::group(['prefix' => 'admin','middleware'=>'CheckLogin'], function() {
         Route::get('edit-variant/{id}','backend\ProductController@EditVariant' );
         Route::post('edit-variant/{id}','backend\ProductController@PostEditVariant' );
         Route::get('del-variant/{id}','backend\ProductController@DelVariant' );
-    });  
+    });
 
     Route::group(['prefix' => 'order'], function() {
-        Route::get('','backend\OrderController@ListOrder' ); 
+        Route::get('','backend\OrderController@ListOrder' );
         Route::get('detail/{customer_id}','backend\OrderController@DetailOrder' );
         Route::get('active/{customer_id}','backend\OrderController@ActiveOrder' );
         Route::get('processed','backend\OrderController@ProcessedOrder' );
-    
+
     });
     Route::group(['prefix' => 'user'], function() {
-        Route::get('','backend\UserController@ListUser' ); 
-        Route::get('add','backend\UserController@AddUser' ); 
-        Route::post('add','backend\UserController@PostAddUser' ); 
-        Route::get('edit/{id}','backend\UserController@EditUser' ); 
-        Route::post('edit/{id}','backend\UserController@PostEditUser' ); 
-        Route::get('del/{id}','backend\UserController@DelUser' ); 
-        
-    
+        Route::get('','backend\UserController@ListUser' );
+        Route::get('add','backend\UserController@AddUser' );
+        Route::post('add','backend\UserController@PostAddUser' );
+        Route::get('edit/{id}','backend\UserController@EditUser' );
+        Route::post('edit/{id}','backend\UserController@PostEditUser' );
+        Route::get('del/{id}','backend\UserController@DelUser' );
+
+
     });
 
 

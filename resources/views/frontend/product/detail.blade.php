@@ -10,7 +10,7 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="product-entry">
-										<div class="product-img" style="background-image: url(public/backend/img/{{ $product->img }});">
+										<div class="product-img" style="background-image: url(backend/img/{{ $product->img }});">
 
 										</div>
 
@@ -35,14 +35,14 @@
 													</p>
 												</div>
 											@endforeach
-											
-										
+
+
 											<h4>Lựa chọn</h4>
 											<div class="row">
 												@foreach (attr_values($product->values) as $key=>$value)
 													<div class="col-md-3">
 														<div class="form-group">
-															<label>{{ $key }}</label>															
+															<label>{{ $key }}</label>
 															<select class="form-control " name="attr[{{ $key }}]" id="">
 																@foreach ($value as $item)
 																	<option value="{{ $item }}"> {{ $item }}</option>
@@ -110,7 +110,7 @@
 					@foreach ($product_new as $product)
 					<div class="col-md-3 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(public/backend/img/{{ $product->img }});">
+							<div class="product-img" style="background-image: url(backend/img/{{ $product->img }});">
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
@@ -128,8 +128,8 @@
 						</div>
 					</div>
 					@endforeach
-					
-					
+
+
 				</div>
 			</div>
 		</div>
@@ -142,7 +142,7 @@
 
 			var quantitiy = 0;
 			$('.quantity-right-plus').click(function (e) {
- 
+
 				// Stop acting like a button
 				e.preventDefault();
 				// Get the field name

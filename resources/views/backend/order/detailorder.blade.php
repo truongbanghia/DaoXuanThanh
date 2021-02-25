@@ -54,22 +54,22 @@
 									</thead>
 									<tbody>
 										@foreach ($customer->order as $order)
-											
-										
+
+
 										<tr>
 											<td>1</td>
 											<td>
 												<div class="row">
 													<div class="col-md-4">
-														<img width="100px" src="public/backend/img/{{$order->img}}" class="thumbnail">
+														<img width="100px" src="backend/img/{{$order->img}}" class="thumbnail">
 													</div>
 													<div class="col-md-8">
 														<p>Tên Sản phẩm: <strong>{{$order->name}}</strong></p>
 														@foreach ($order->attr as $attr)
 														<p>{{$attr->name}}:{{$attr->value}}</p>
 														@endforeach
-														
-														
+
+
 													</div>
 												</div>
 											</td>

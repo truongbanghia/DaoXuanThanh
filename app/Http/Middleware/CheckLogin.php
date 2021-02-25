@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
@@ -18,12 +18,16 @@ class CheckLogin
     {
         if(Auth::check())
         {
-            return $next($request);
+            if (Auth::user()->level == 3) {
+                return redirect('/');
+            } else {
+                return $next($request);
+            }
         }
         else
         {
             return redirect('login');
         }
-       
+
     }
 }

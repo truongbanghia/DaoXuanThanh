@@ -15,8 +15,8 @@ use App\models\{product,attribute,values,category,variant};
 class ProductController extends Controller
 {
     public function ListProduct()
-   {  
-     
+   {
+
       $data['products']=product::paginate(3);
       return view('backend.product.listproduct',$data);
    }
@@ -43,13 +43,13 @@ class ProductController extends Controller
       {
       $file = $request->product_img;
       $filename= Str::random(9).'.'.$file->getClientOriginalExtension();
-      $file->move('public/backend/img', $filename);
+      $file->move('backend/img', $filename);
       $product->img= $filename;
       }
       else {
          $product->img='no-img.jpg';
       }
-  
+
    $product->category_id= $request->category;
    $product->save();
    $mang=array();
@@ -64,13 +64,13 @@ class ProductController extends Controller
       $variant=get_combinations($request->attr);
 
       foreach($variant as $var)
-      {  
+      {
          $vari=new variant;
          $vari->product_id=$product->id;
          $vari->save();
          $vari->values()->Attach($var);
       }
-   return redirect('admin/product/add-variant/'.$product->id);   
+   return redirect('admin/product/add-variant/'.$product->id);
 
    }
    public function EditProduct(request $request,$id)
@@ -80,7 +80,7 @@ class ProductController extends Controller
       $data['attrs']=attribute::all();
     return view('backend.product.editproduct',$data);
    }
-   
+
    public function PostEditProduct(EditProductRequest $request,$id)
    {
      $product=product::find($id);
@@ -96,15 +96,15 @@ class ProductController extends Controller
         {
            if(file_exists($product->img!='no-img.jpg'))
            {
-            unlink('public/backend/img/'.$product->img);
+            unlink('backend/img/'.$product->img);
            }
-           
+
         $file = $request->product_img;
         $filename= Str::random(9).'.'.$file->getClientOriginalExtension();
-        $file->move('public/backend/img', $filename);
+        $file->move('backend/img', $filename);
         $product->img= $filename;
         }
-      
+
      $product->category_id= $request->category;
      $product->save();
      //add values
@@ -121,7 +121,7 @@ class ProductController extends Controller
      $variant=get_combinations($request->attr);
 
       foreach($variant as $var)
-      {  
+      {
          if(check_var($product,$var))
          {
             $vari=new variant;
@@ -129,17 +129,17 @@ class ProductController extends Controller
             $vari->save();
             $vari->values()->Attach($var);
          }
-        
+
       }
-     
+
      return redirect()->back()->with('thongbao','Đã sưả thành công!');
-     
+
    }
    public function DelProduct($id)
    {
       product::destroy($id);
       return redirect()->back()->with('thongbao','Đã xóa thành công');
-      
+
    }
    public function AddAttr(AddAttrRequest $request)
    {
@@ -152,10 +152,10 @@ class ProductController extends Controller
 
    public function DelAttr($id)
    {
-        attribute::destroy($id); 
-        
+        attribute::destroy($id);
+
         return redirect('admin/product/detail-attr')-> with('thongbao','Đã xóa thành công!');
-        
+
    }
 
    public function AddValue(AddValueRequest $request)
@@ -180,13 +180,13 @@ class ProductController extends Controller
    }
 
    public function PostAttr(EditAttrRequest $request,$id)
-   {    
+   {
     $attr=  attribute::find($id);
     $attr->name=$request->attr_name;
     $attr->save();
 
   return redirect()->back()->with('thongbao','Đã sưả thuộc tính:'.$request->attr_name);
-   
+
    }
 
    public function EditValue($id)
@@ -200,11 +200,11 @@ class ProductController extends Controller
       $value=values::find($id);
       $value->value=$request->value_name;
       $value->save();
-      
-      
+
+
       return redirect()->back()->with('thongbao','Đã sủa thành công ');
-      
-      
+
+
    }
    public function PostAddVariant(request $request,$id)
    {
@@ -214,7 +214,7 @@ class ProductController extends Controller
         $vari->price=$value;
         $vari->save();
      }
-  
+
      return redirect('admin/product')->with('thongbao','Đã thêm thành công!');
    }
 
@@ -232,25 +232,25 @@ class ProductController extends Controller
    public function DelValue($id)
    {
       values::destroy($id);
-      
+
       return redirect()->back()->with('thongbao','Đã xóa thành công!');
-      
+
    }
    public function EditVariant($id)
    {
       $data['product']=product::find($id);
         return view('backend.variant.editvariant',$data);
    }
-   
+
    public function PostEditVariant(request $request,$id)
    {
       foreach($request->variant as $key=>$value)
      {
-        $vari=variant::find($key); 
+        $vari=variant::find($key);
         $vari->price=$value;
         $vari->save();
      }
-  
+
      return redirect('admin/product')->with('thongbao','Đã sủa thành công!');
    }
 }

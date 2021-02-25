@@ -31,7 +31,7 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								
+
 									@if (session('thongbao'))
 									<div class="alert bg-success" role="alert">
 									<svg class="glyph stroked checkmark">
@@ -39,7 +39,7 @@
 									</svg>{{session('thongbao')}}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 									</div>
 									@endif
-								
+
 								<a href="admin\product\add" class="btn btn-primary">Thêm sản phẩm</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 
@@ -52,7 +52,7 @@
 											<th>Danh mục</th>
 											<th>Số lượng</th>
 											<th>Tùy chọn</th>
-											
+
 										</tr>
 									</thead>
 									<tbody>
@@ -61,7 +61,7 @@
                                                 <td>{{$product->id}}</td>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-3"><img src="public/backend/img/{{$product->img}}" alt="Áo đẹp" width="100px" class="thumbnail"></div>
+                                                        <div class="col-md-3"><img src="backend/img/{{$product->img}}" alt="Áo đẹp" width="100px" class="thumbnail"></div>
                                                         <div class="col-md-9">
                                                             <p><strong>Mã sản phẩm : {{$product->product_code}}</strong></p>
                                                             <p>Tên sản phẩm :{{$product->name}}</p>
@@ -73,7 +73,7 @@
 																@endforeach
 															</p>
 															@endforeach
-															
+
 
                                                         </div>
                                                     </div>
@@ -92,8 +92,8 @@
                                                     <a href="admin/product/edit/{{ $product->id }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
                                                     <a onclick="return del_pro('{{ $product->name }}')" href="admin/product/del/{{ $product->id }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 												</td>
-                                               
-												
+
+
                                             </tr>
                                         @endforeach
 
@@ -102,7 +102,7 @@
 								<div align='right'>
 									{!!$products->links()!!}
 								</div>
-							</div> 
+							</div>
 							<div class="clearfix"></div>
 						</div>
 

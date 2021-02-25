@@ -10,24 +10,30 @@ use Carbon\Carbon;
 
 class LoginController extends Controller
 {
-   public function GetLogin(){  
+   public function GetLogin(){
        return view('backend.login.login');
-       
+
     }
     public function PostLogin(LoginRequest $request){
-        
-        
-        
+
+
+
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
-        { 
-            return redirect('admin'); 
+        {
+            if (Auth::user()->level == 3) {
+                return redirect('/');
+            } else {
+                return redirect('admin');
+            }
+
+
         }
-        else{  
-            return redirect('login')->withInput()->with('thongbao','Tài khoản hoac mật khẩu không đúng');   
+        else{
+            return redirect('login')->withInput()->with('thongbao','Tài khoản hoac mật khẩu không đúng');
         }
      }
     public function GetIndex()
-    {   
+    {
         $year_n=Carbon::now()->format('Y');
         $month_n=Carbon::now()->format('m');
         for($i=1;$i<=$month_n;$i++)
@@ -41,10 +47,9 @@ class LoginController extends Controller
          return view('backend.index',$data);
     }
     public function Logout()
-    {     
-       Auth::logout();  
-        return redirect('login');    
+    {
+       Auth::logout();
+        return redirect('login');
     }
 }
 
- 

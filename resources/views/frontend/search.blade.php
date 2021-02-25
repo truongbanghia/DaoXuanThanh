@@ -10,7 +10,7 @@
 							@foreach ($search as $item)
 							<div class="col-md-4 text-center">
 								<div class="product-entry">
-									<div class="product-img" style="background-image: url(public/backend/img/{{$item->img}});">
+									<div class="product-img" style="background-image: url(backend/img/{{$item->img}});">
 
 										<div class="cart">
 											<p>
@@ -26,10 +26,10 @@
 										<p class="price"><span>{{ number_format($item->price,0,'',',') }}VND</span>
 									</div>
 								</div>
-							</div> 
+							</div>
 							@endforeach
-							
-						
+
+
 						</div>
 					</div>
 				</div>
